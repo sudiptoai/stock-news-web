@@ -20,16 +20,16 @@ export function MarketEventsPage() {
     <div className="space-y-6">
       <div>
         <div className="flex items-center gap-2 mb-1">
-          <AlertCircle className="w-5 h-5 text-orange-600" />
-          <h1 className="text-2xl font-bold text-gray-900">Market Events</h1>
+          <AlertCircle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Market Events</h1>
         </div>
-        <p className="text-gray-500 text-sm">
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
           Track events that affect the stock market — geopolitical, company, economic, and regulatory.
         </p>
       </div>
 
       {/* Event type filter */}
-      <div className="bg-white rounded-xl border border-gray-200 p-4">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
         <div className="flex flex-wrap gap-2">
           {eventTypeFilters.map(f => (
             <button
@@ -37,8 +37,8 @@ export function MarketEventsPage() {
               onClick={() => setEventTypeFilter(f.value)}
               className={`px-3 py-1.5 text-sm font-medium rounded-full transition-colors ${
                 eventTypeFilter === f.value
-                  ? 'bg-orange-600 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-orange-600 dark:bg-orange-500 text-white'
+                  : 'bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
               }`}
             >
               {f.label}

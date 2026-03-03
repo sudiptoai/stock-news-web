@@ -12,10 +12,10 @@ export function NewsPage() {
     <div className="space-y-6">
       <div>
         <div className="flex items-center gap-2 mb-1">
-          <Newspaper className="w-5 h-5 text-blue-600" />
-          <h1 className="text-2xl font-bold text-gray-900">Investment News</h1>
+          <Newspaper className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+          <h1 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Investment News</h1>
         </div>
-        <p className="text-gray-500 text-sm">
+        <p className="text-gray-500 dark:text-gray-400 text-sm">
           Curated news across sectors, stocks, mutual funds, commodities, and more.
         </p>
       </div>
@@ -35,7 +35,7 @@ export function NewsPage() {
           ) : error ? (
             <ErrorMessage message="Failed to load news. Please try again." />
           ) : !news?.length ? (
-            <div className="text-center py-12 text-gray-500">
+            <div className="text-center py-12 text-gray-500 dark:text-gray-400">
               <Newspaper className="w-12 h-12 mx-auto mb-3 opacity-30" />
               <p>No news found matching your filters.</p>
             </div>
@@ -45,7 +45,7 @@ export function NewsPage() {
             </div>
           )}
           {news && (
-            <p className="text-xs text-gray-400 mt-4 text-center">
+            <p className="text-xs text-gray-400 dark:text-gray-500 mt-4 text-center">
               Showing {news.length} articles
             </p>
           )}

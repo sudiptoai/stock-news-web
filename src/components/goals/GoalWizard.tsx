@@ -74,20 +74,20 @@ export function GoalWizard({ onComplete }: Props) {
               <div
                 className={clsx(
                   'w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold',
-                  currentStep > step.id ? 'bg-green-500 text-white' :
-                  currentStep === step.id ? 'bg-blue-600 text-white' :
-                  'bg-gray-200 text-gray-500'
+                  currentStep > step.id ? 'bg-green-500 dark:bg-green-600 text-white' :
+                  currentStep === step.id ? 'bg-blue-600 dark:bg-blue-500 text-white' :
+                  'bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400'
                 )}
               >
                 {currentStep > step.id ? <CheckCircle className="w-5 h-5" /> : step.id}
               </div>
-              <span className="text-xs mt-1 text-gray-500">{step.title}</span>
+              <span className="text-xs mt-1 text-gray-500 dark:text-gray-400">{step.title}</span>
             </div>
             {idx < steps.length - 1 && (
               <div
                 className={clsx(
                   'flex-1 h-0.5 mx-3 mt-[-10px]',
-                  currentStep > step.id ? 'bg-green-500' : 'bg-gray-200'
+                  currentStep > step.id ? 'bg-green-500 dark:bg-green-600' : 'bg-gray-200 dark:bg-gray-700'
                 )}
               />
             )}
@@ -95,25 +95,25 @@ export function GoalWizard({ onComplete }: Props) {
         ))}
       </div>
 
-      <div className="bg-white rounded-xl border border-gray-200 p-6">
+      <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
         {/* Step 1: Personal Info */}
         {currentStep === 1 && (
           <div className="space-y-4">
-            <h3 className="font-semibold text-lg text-gray-900">Tell us about yourself</h3>
+            <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">Tell us about yourself</h3>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Your Age</label>
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Age</label>
               <input
                 type="number"
                 placeholder="e.g. 28"
                 value={formData.age}
                 onChange={e => setFormData(p => ({ ...p, age: e.target.value }))}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 min="18"
                 max="80"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                 Monthly Income (₹)
               </label>
               <input
@@ -121,7 +121,7 @@ export function GoalWizard({ onComplete }: Props) {
                 placeholder="e.g. 75000"
                 value={formData.monthlyIncome}
                 onChange={e => setFormData(p => ({ ...p, monthlyIncome: e.target.value }))}
-                className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-3 py-2 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-600 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
                 min="0"
               />
             </div>
@@ -131,10 +131,10 @@ export function GoalWizard({ onComplete }: Props) {
         {/* Step 2: Financial Profile */}
         {currentStep === 2 && (
           <div className="space-y-5">
-            <h3 className="font-semibold text-lg text-gray-900">Your financial profile</h3>
+            <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">Your financial profile</h3>
 
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-2">Risk Tolerance</p>
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Risk Tolerance</p>
               <div className="space-y-2">
                 {riskOptions.map(opt => (
                   <label
@@ -142,8 +142,8 @@ export function GoalWizard({ onComplete }: Props) {
                     className={clsx(
                       'flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors',
                       formData.riskTolerance === opt.value
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30'
+                        : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
                     )}
                   >
                     <input
@@ -155,8 +155,8 @@ export function GoalWizard({ onComplete }: Props) {
                       className="mt-0.5"
                     />
                     <div>
-                      <p className="text-sm font-medium text-gray-800">{opt.label}</p>
-                      <p className="text-xs text-gray-500">{opt.description}</p>
+                      <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{opt.label}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{opt.description}</p>
                     </div>
                   </label>
                 ))}
@@ -164,7 +164,7 @@ export function GoalWizard({ onComplete }: Props) {
             </div>
 
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-2">Investment Horizon</p>
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Investment Horizon</p>
               <div className="space-y-2">
                 {horizonOptions.map(opt => (
                   <label
@@ -172,8 +172,8 @@ export function GoalWizard({ onComplete }: Props) {
                     className={clsx(
                       'flex items-start gap-3 p-3 rounded-lg border cursor-pointer transition-colors',
                       formData.investmentHorizon === opt.value
-                        ? 'border-blue-500 bg-blue-50'
-                        : 'border-gray-200 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30'
+                        : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500'
                     )}
                   >
                     <input
@@ -185,8 +185,8 @@ export function GoalWizard({ onComplete }: Props) {
                       className="mt-0.5"
                     />
                     <div>
-                      <p className="text-sm font-medium text-gray-800">{opt.label}</p>
-                      <p className="text-xs text-gray-500">{opt.description}</p>
+                      <p className="text-sm font-medium text-gray-800 dark:text-gray-200">{opt.label}</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">{opt.description}</p>
                     </div>
                   </label>
                 ))}
@@ -198,10 +198,10 @@ export function GoalWizard({ onComplete }: Props) {
         {/* Step 3: Goals */}
         {currentStep === 3 && (
           <div className="space-y-5">
-            <h3 className="font-semibold text-lg text-gray-900">Your investment goals</h3>
+            <h3 className="font-semibold text-lg text-gray-900 dark:text-gray-100">Your investment goals</h3>
 
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-2">
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 What are your investment goals? (Select all that apply)
               </p>
               <div className="grid grid-cols-2 gap-2">
@@ -218,8 +218,8 @@ export function GoalWizard({ onComplete }: Props) {
                     className={clsx(
                       'text-left px-3 py-2 text-sm rounded-lg border transition-colors',
                       formData.goals.includes(goal)
-                        ? 'border-blue-500 bg-blue-50 text-blue-700 font-medium'
-                        : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium'
+                        : 'border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-500'
                     )}
                   >
                     {goal}
@@ -229,7 +229,7 @@ export function GoalWizard({ onComplete }: Props) {
             </div>
 
             <div>
-              <p className="text-sm font-medium text-gray-700 mb-2">
+              <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                 Where do you already invest? (Select all that apply)
               </p>
               <div className="grid grid-cols-2 gap-2">
@@ -246,8 +246,8 @@ export function GoalWizard({ onComplete }: Props) {
                     className={clsx(
                       'text-left px-3 py-2 text-sm rounded-lg border transition-colors',
                       formData.existingInvestments.includes(inv)
-                        ? 'border-blue-500 bg-blue-50 text-blue-700 font-medium'
-                        : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                        ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 font-medium'
+                        : 'border-gray-200 dark:border-gray-600 text-gray-600 dark:text-gray-300 hover:border-gray-300 dark:hover:border-gray-500'
                     )}
                   >
                     {inv}
@@ -259,11 +259,11 @@ export function GoalWizard({ onComplete }: Props) {
         )}
 
         {/* Navigation buttons */}
-        <div className="flex justify-between mt-6 pt-4 border-t border-gray-100">
+        <div className="flex justify-between mt-6 pt-4 border-t border-gray-100 dark:border-gray-700">
           <button
             onClick={() => setCurrentStep(s => s - 1)}
             disabled={currentStep === 1}
-            className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-600 hover:text-gray-900 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-gray-100 disabled:opacity-40 disabled:cursor-not-allowed"
           >
             <ChevronLeft className="w-4 h-4" />
             Back
@@ -275,7 +275,7 @@ export function GoalWizard({ onComplete }: Props) {
               disabled={
                 (currentStep === 1 && (!formData.age || !formData.monthlyIncome))
               }
-              className="flex items-center gap-1 px-4 py-2 text-sm font-medium bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center gap-1 px-4 py-2 text-sm font-medium bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               Next
               <ChevronRight className="w-4 h-4" />
@@ -284,7 +284,7 @@ export function GoalWizard({ onComplete }: Props) {
             <button
               onClick={handleSubmit}
               disabled={formData.goals.length === 0}
-              className="flex items-center gap-1 px-4 py-2 text-sm font-medium bg-green-600 text-white rounded-lg hover:bg-green-700 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center gap-1 px-4 py-2 text-sm font-medium bg-green-600 dark:bg-green-500 text-white rounded-lg hover:bg-green-700 dark:hover:bg-green-600 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               Get Recommendations
               <ChevronRight className="w-4 h-4" />

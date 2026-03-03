@@ -1,4 +1,62 @@
-# React + TypeScript + Vite
+# Stock News Web
+
+A modern financial news aggregator built with React, TypeScript, and Vite. Get real-time financial news from various sources with filtering and sentiment analysis.
+
+## Features
+
+- 📰 Real-time financial news from NewsAPI
+- 🎯 Category-based filtering (stocks, crypto, commodities, etc.)
+- 💹 Sentiment analysis (positive, negative, neutral)
+- 🔍 Search functionality
+- 🎨 Modern and responsive UI
+- ⚡ Fast and optimized with Vite
+
+## Setup
+
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+- NewsAPI key (free tier available)
+
+### Installation
+
+1. Clone the repository
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Get your free NewsAPI key:
+   - Visit [https://newsapi.org/register](https://newsapi.org/register)
+   - Sign up for a free account
+   - Copy your API key
+
+4. Create a `.env` file in the root directory:
+   ```bash
+   cp .env.example .env
+   ```
+
+5. Add your NewsAPI key to `.env`:
+   ```
+   VITE_NEWS_API_KEY=your_actual_api_key_here
+   ```
+
+6. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+## NewsAPI Free Tier Limitations
+
+- 100 requests per day
+- News articles up to 1 month old
+- HTTPS access
+- Developer attribution required
+
+For production use, consider upgrading to a paid plan at [newsapi.org/pricing](https://newsapi.org/pricing).
+
+## Development
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 

@@ -44,13 +44,13 @@ export function HomePage() {
         <div className="flex flex-wrap gap-3">
           <Link
             to="/news"
-            className="px-4 py-2 bg-white text-blue-700 rounded-lg text-sm font-semibold hover:bg-blue-50 transition-colors"
+            className="px-4 py-2 bg-white dark:bg-gray-900 text-blue-700 dark:text-blue-400 rounded-lg text-sm font-semibold hover:bg-blue-50 dark:hover:bg-gray-800 transition-colors"
           >
             Latest News
           </Link>
           <Link
             to="/goals"
-            className="px-4 py-2 bg-blue-500 text-white rounded-lg text-sm font-semibold hover:bg-blue-400 transition-colors border border-blue-400"
+            className="px-4 py-2 bg-blue-500 dark:bg-blue-600 text-white rounded-lg text-sm font-semibold hover:bg-blue-400 dark:hover:bg-blue-500 transition-colors border border-blue-400 dark:border-blue-500"
           >
             Set Investment Goals
           </Link>
@@ -59,13 +59,13 @@ export function HomePage() {
 
       {/* Market Snapshot */}
       <section>
-        <h2 className="text-lg font-bold text-gray-900 mb-3">Market Snapshot</h2>
+        <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">Market Snapshot</h2>
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {stats.map(stat => (
-            <div key={stat.label} className="bg-white rounded-xl border border-gray-200 p-4">
-              <p className="text-xs text-gray-500 mb-1">{stat.label}</p>
-              <p className="text-lg font-bold text-gray-900">{stat.value}</p>
-              <div className={`flex items-center gap-1 text-sm font-medium ${stat.positive ? 'text-green-600' : 'text-red-600'}`}>
+            <div key={stat.label} className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
+              <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">{stat.label}</p>
+              <p className="text-lg font-bold text-gray-900 dark:text-gray-100">{stat.value}</p>
+              <div className={`flex items-center gap-1 text-sm font-medium ${stat.positive ? 'text-green-600 dark:text-green-400' : 'text-red-600 dark:text-red-400'}`}>
                 {stat.positive ? <TrendingUp className="w-3.5 h-3.5" /> : <TrendingDown className="w-3.5 h-3.5" />}
                 {stat.change}
               </div>
@@ -86,18 +86,18 @@ export function HomePage() {
             <Link
               key={item.to}
               to={item.to}
-              className="bg-white rounded-xl border border-gray-200 p-5 hover:shadow-md transition-shadow flex items-start gap-3 group"
+              className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 hover:shadow-md transition-shadow flex items-start gap-3 group"
             >
               <div className={`p-2 rounded-lg ${item.iconBg}`}>
                 <Icon className={`w-5 h-5 ${item.iconColor}`} />
               </div>
               <div className="flex-1">
-                <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                <h3 className="font-semibold text-gray-900 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {item.title}
                 </h3>
-                <p className="text-sm text-gray-500 mt-0.5">{item.desc}</p>
+                <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">{item.desc}</p>
               </div>
-              <ArrowRight className="w-4 h-4 text-gray-400 mt-1 group-hover:text-blue-600 transition-colors" />
+              <ArrowRight className="w-4 h-4 text-gray-400 mt-1 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" />
             </Link>
           );
         })}
@@ -106,8 +106,8 @@ export function HomePage() {
       {/* Latest News */}
       <section>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-bold text-gray-900">Latest News</h2>
-          <Link to="/news" className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Latest News</h2>
+          <Link to="/news" className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-1">
             View all <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
@@ -123,8 +123,8 @@ export function HomePage() {
       {/* Market Events */}
       <section>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-bold text-gray-900">Recent Market Events</h2>
-          <Link to="/events" className="text-sm text-blue-600 hover:text-blue-700 font-medium flex items-center gap-1">
+          <h2 className="text-lg font-bold text-gray-900 dark:text-gray-100">Recent Market Events</h2>
+          <Link to="/events" className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium flex items-center gap-1">
             View all <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
